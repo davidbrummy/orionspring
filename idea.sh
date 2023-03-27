@@ -1,0 +1,2 @@
+gradle cleanIdea
+gradle idea

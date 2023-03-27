@@ -1,0 +1,2 @@
+docker stop my_application_container
+docker rm my_application_container

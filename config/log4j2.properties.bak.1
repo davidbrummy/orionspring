@@ -1,0 +1,8 @@
+# Set root logger
+rootLogger=DEBUG, console
+ 
+# Add log messages to console
+appender.console=org.apache.log4j.ConsoleAppender
+appender.console.Target=System.out
+appender.console.layout=org.apache.log4j.PatternLayout
+appender.console.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c - %m%n
