@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp "$NEW_ORION"/build/libs/neworion.war "$TOMCAT"/webapps/ROOT.war
+cp "$ORION_SPRING"/build/libs/orionspring.war "$TOMCAT"/webapps/ROOT.war

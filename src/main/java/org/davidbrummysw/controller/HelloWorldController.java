@@ -1,33 +1,32 @@
 package org.davidbrummysw.controller;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
+import org.davidbrummysw.model.User;
+import org.davidbrummysw.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 
 @Slf4j
-@Path("helloworld")
+@RestController
+@RequestMapping("/hello")
 public class HelloWorldController {
 
-    @GET
-    @Path("/hello")
-    @Produces({ MediaType.APPLICATION_JSON })
-    public Response hello(@PathParam("name") final String name) {
+    @Autowired
+    //@Getter @Setter
+    private UserService userService;
+
+    @GetMapping("/world")
+    public @ResponseBody ResponseEntity<String> test() {
+        log.debug("test");
+        userService.test();
         User user = new User();
-        user.setAddress("704 Burlingame Ave tedddddst1");
-        user.setName("David Jones");
-
-        log.info(user.toString());
+        user.setUserName("david123");
         log.debug(user.toString());
-
-        return Response
-                .status(Response.Status.OK)
-                .entity(user)
-                .build();
+        return new ResponseEntity<String>("GET Response" , HttpStatus.OK);
     }
 }
