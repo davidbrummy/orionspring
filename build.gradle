@@ -5,15 +5,16 @@ plugins {
     id 'pmd'
     id "com.bmuschko.tomcat" version "2.5"
     id 'idea'
-    id "io.freefair.lombok" version "6.6.3"
+    id "io.freefair.lombok" version "8.4"
 }
-
-// JDK 17
-sourceCompatibility = 17
-targetCompatibility = 17
 
 repositories {
     mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {
@@ -21,6 +22,7 @@ dependencies {
     implementation 'com.google.guava:guava:31.1-jre'
     implementation 'org.springframework:spring-context:6.0.7'
     implementation 'org.springframework:spring-webmvc:6.0.7'
+
 
 
     implementation 'org.slf4j:slf4j-api:1.7.30'

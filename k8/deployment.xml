@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orionspring-deployment
+  labels:
+    app: orionspring
+spec:
+  replicas : 1 
+  selector:
+    matchLabels:
+      app: orionspring
+  
+  template:
+    metadata:
+      labels:
+        app: orionspring
+    spec:
+      containers:
+      - name: orionspring
+        image: myapp
+        imagePullPolicy: Never
+        ports:
+         - containerPort: 8080
