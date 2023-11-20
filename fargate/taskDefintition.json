@@ -1,0 +1,25 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "orionspring--ontainer",
+            "image": "846380751147.dkr.ecr.us-east-1.amazonaws.com/davidbrummysw-registry:oprionspring1.0",
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "cpu": 1024,
+            "memory": 256
+        }
+        
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "executionRoleArn": "arn:aws:iam::846380751147:role/ecsTaskExecutionRole",
+    "family": "davidbrummysw-tomcat",
+    "networkMode": "awsvpc",
+    "cpu": "1024",
+    "memory": "2048"
+}
