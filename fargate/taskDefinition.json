@@ -1,7 +1,7 @@
 {
     "containerDefinitions": [
         {
-            "name": "orionspring--ontainer",
+            "name": "orionspring--container",
             "image": "846380751147.dkr.ecr.us-east-1.amazonaws.com/davidbrummysw-registry:oprionspring1.0",
             "portMappings": [
                 {
@@ -9,6 +9,14 @@
                     "protocol": "tcp"
                 }
             ],
+            "logConfiguration": {
+               "logDriver": "awslogs",
+               "options": {
+                   "awslogs-group": "/ecs/tomcat-container-logs",
+                   "awslogs-region": "us-east-1",
+                   "awslogs-stream-prefix": "ecs"
+                }
+            },
             "cpu": 1024,
             "memory": 256
         }
@@ -17,6 +25,10 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
+    "runtimePlatform": {
+        "operatingSystemFamily": "LINUX",
+        "cpuArchitecture": "ARM64"
+    },
     "executionRoleArn": "arn:aws:iam::846380751147:role/ecsTaskExecutionRole",
     "family": "davidbrummysw-tomcat",
     "networkMode": "awsvpc",

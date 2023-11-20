@@ -1,0 +1,1 @@
+aws ecs create-service --cluster davidbrummysw-cluster --service-name davidbrummysw-service --task-definition davidbrummysw-tomcat:2 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-079d687b811b658ff, subnet-04cb4cd00b99744be],securityGroups=[sg-0841c0fb85eaa41bc],assignPublicIp=DISABLED}"
